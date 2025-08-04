@@ -30,13 +30,43 @@
             "this is kinda tedious lol ",
             React.createElement("small", null, "(just use vite or smth)")
           ),
+          React.createElement(
+            "p",
+            null,
+            "follow me on ",
+            React.createElement(
+              "a",
+              {
+                href: "https://github.com/felipeozalmeida",
+                rel: "noreferrer noopener",
+                target: "_blank",
+              },
+              "github"
+            ),
+            "!"
+          ),
+          React.createElement(
+            "p",
+            null,
+            " or connect with me on ",
+            React.createElement(
+              "a",
+              {
+                href: "https://www.linkedin.com/in/felipeozalmeida/",
+                rel: "noreferrer noopener",
+                target: "_blank",
+              },
+              "linkedin"
+            ),
+            "!"
+          ),
           isShowingButton
             ? React.createElement(
                 Button,
                 { onClick: () => alert("you clicked me oh eme gee!") },
-                "click me"
+                "now you see me"
               )
-            : null
+            : "(now you don't)"
         );
       }
 
