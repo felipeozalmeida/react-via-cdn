@@ -5,68 +5,61 @@
     <title>React via CDN</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script>
+    <script type="text/babel">
       function Button(props) {
-        return React.createElement(
-          "button",
-          { type: "button", onClick: props.onClick },
-          props.children
+        return (
+          <button type="button" onClick={props.onClick}>
+            {props.children}
+          </button>
         );
       }
 
       function App() {
         var name = "Felipe";
         var isShowingButton = Math.random() > 0.5;
-        return React.createElement(
-          "div",
-          null,
-          React.createElement("h1", null, "Hello, " + name),
-          React.createElement(
-            "p",
-            null,
-            "this is kinda tedious lol ",
-            React.createElement("small", null, "(just use vite or smth)")
-          ),
-          React.createElement(
-            "p",
-            null,
-            "follow me on ",
-            React.createElement(
-              "a",
-              {
-                href: "https://github.com/felipeozalmeida",
-                rel: "noreferrer noopener",
-                target: "_blank",
-              },
-              "github"
-            ),
-            "!"
-          ),
-          React.createElement(
-            "p",
-            null,
-            " or connect with me on ",
-            React.createElement(
-              "a",
-              {
-                href: "https://www.linkedin.com/in/felipeozalmeida/",
-                rel: "noreferrer noopener",
-                target: "_blank",
-              },
-              "linkedin"
-            ),
-            "!"
-          ),
-          isShowingButton
-            ? React.createElement(
-                Button,
-                { onClick: () => alert("you clicked me oh eme gee!") },
-                "now you see me"
-              )
-            : "(now you don't)"
+        return (
+          <div>
+            <h1>Hello, {name}</h1>
+            <p>
+              this is kinda tedious lol <small>(just use vite or smth)</small>
+            </p>
+            <p>
+              follow me on{" "}
+              <a
+                href="https://github.com/felipeozalmeida"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                github
+              </a>
+              !
+            </p>
+            <p>
+              or connect with me on{" "}
+              <a
+                href="https://www.linkedin.com/in/felipeozalmeida/"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                linkedin
+              </a>
+              !
+            </p>
+            {isShowingButton ? (
+              <Button
+                type="button"
+                onClick={() => alert("you clicked me oh eme gee!")}
+              >
+                now you see me
+              </Button>
+            ) : (
+              "(now you don't)"
+            )}
+          </div>
         );
       }
 
