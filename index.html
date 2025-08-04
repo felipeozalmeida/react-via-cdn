@@ -18,16 +18,25 @@
       }
 
       function App() {
+        var name = "Felipe";
+        var isShowingButton = Math.random() > 0.5;
         return React.createElement(
           "div",
           null,
-          React.createElement("h1", null, "Hello, React"),
-          React.createElement("p", null, "this is kinda tedious lol"),
+          React.createElement("h1", null, "Hello, " + name),
           React.createElement(
-            Button,
-            { onClick: () => alert("you clicked me oh eme gee!") },
-            "click me"
-          )
+            "p",
+            null,
+            "this is kinda tedious lol ",
+            React.createElement("small", null, "(just use vite or smth)")
+          ),
+          isShowingButton
+            ? React.createElement(
+                Button,
+                { onClick: () => alert("you clicked me oh eme gee!") },
+                "click me"
+              )
+            : null
         );
       }
 
